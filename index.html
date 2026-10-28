@@ -1,31 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <title>Kenkun Liu's Homepage</title>
 
-  <meta name="keywords" content="Kenkun Liu,kenkun liu,kenkunliu,Liu Kenkun,Kenkun"/>
-  <meta name="description" content="Kenkun Liu's Homepage"/>
+  <meta name="keywords" content="Kenkun Liu, Liu Kenkun, 3D generation, foundation models, computer vision">
+  <meta name="description" content="Kenkun Liu — Senior Researcher at Tencent Hunyuan working on 3D generative foundation models.">
   <meta name="google-site-verification" content="xDNWUvx6Q5EWK5YYSyKvK8DZTmvXhKsGX203Ll-BFFE">
-  <meta name="viewport" content="width=800">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style type="text/css">
-    @import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
+    * {
+      box-sizing: border-box;
+    }
 
-    /* Color scheme stolen from Sergey Karayev */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: #25313d;
+      background: #f5f7fa;
+      line-height: 1.6;
+    }
+
     a {
-      /*color: #b60a1c;*/
-      color: #1772d0;
-      /*color: #bd0a36;*/
+      color: #1769aa;
       text-decoration: none;
     }
 
     a:focus,
     a:hover {
-      color: #f09228;
+      color: #e47a19;
       text-decoration: none;
     }
 
@@ -35,618 +43,830 @@
     tr,
     p,
     a {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', 'Arial', sans-serif;
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     strong {
-      font-family: 'Arial', sans-serif;
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      /*font-family: 'Avenir Next';*/
+      font-family: 'Roboto', 'Arial', sans-serif;
       font-size: 15px;
       font-weight: 600;
     }
 
-    heading {
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      font-family: 'Arial', sans-serif;
-      /*font-family: 'Avenir Next';*/
-      /*src: url("./fonts/Roboto_Mono_for_Powerline.ttf");*/
+    .section-title {
+      margin: 0;
+      font-family: 'Roboto', 'Arial', sans-serif;
       font-size: 24px;
-      font-weight: 200;
+      font-weight: 600;
+      color: #172635;
     }
 
-    papertitle {
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      font-family: 'Arial', sans-serif;
-      /*font-family: 'Avenir Next';*/
-      /*src: url("./fonts/Roboto_Mono_for_Powerline.ttf");*/
+    .paper-title {
+      font-family: 'Roboto', 'Arial', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .page-shell {
+      width: min(860px, calc(100% - 32px));
+      margin: 28px auto;
+      overflow: hidden;
+      border: 1px solid #e8edf3;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(28, 54, 85, 0.08);
+    }
+
+    .profile-hero {
+      width: 100%;
+      background: linear-gradient(135deg, #f8fbff 0%, #fff 60%);
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    .profile-copy {
+      width: 67%;
+      padding: 42px 30px 36px !important;
+    }
+
+    .profile-name {
+      margin: 0 0 18px;
+      font-family: 'Roboto', 'Arial', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-align: left;
+    }
+
+    .profile-bio {
+      margin: 0;
+      color: #506070;
       font-size: 15px;
-      font-weight: 300;
+      line-height: 1.75;
     }
 
-    name {
-      /*font-family: 'Lato', Verdana, Helvetica, sans-serif;*/
-      font-family: 'Arial', sans-serif;
-      /*font-family: 'Avenir Next';*/
-      font-weight: 400;
-      font-size: 32px;
+    .profile-links {
+      margin: 22px 0 0;
     }
 
-    .one {
+    .profile-links a {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 7px 13px;
+      border: 1px solid #d8e5f1;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .profile-photo-cell {
+      width: 33%;
+      padding: 30px !important;
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(28, 54, 85, 0.15);
+    }
+
+    .content-section {
+      padding: 26px 20px 8px;
+    }
+
+    .section-heading {
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e8edf3;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .experience-list {
+      grid-template-columns: 1fr;
+    }
+
+    .experience-card {
+      display: flex;
+      align-items: center;
+      min-height: 112px;
+      padding: 16px;
+      border: 1px solid #e8edf3;
+      border-radius: 12px;
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .experience-card:hover,
+    .publication-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(28, 54, 85, 0.09);
+    }
+
+    .experience-logo {
+      width: 72px;
+      height: 64px;
+      margin-right: 16px;
+      object-fit: contain;
+    }
+
+    .experience-card h3 {
+      margin: 0 0 4px;
+      color: #243444;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .experience-card p {
+      margin: 0;
+      color: #73808d;
+      font-size: 13px;
+    }
+
+    .experience-current {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #eaf7ef;
+      color: #287a49;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .projects-section {
+      padding: 26px 20px 8px;
+    }
+
+    .projects-heading {
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e8edf3;
+    }
+
+    .project-card {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 16px;
+      border: 1px solid #e8edf3;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(28, 54, 85, 0.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(28, 54, 85, 0.11);
+    }
+
+    .project-image {
+      width: 170px;
+      height: 108px;
+      flex: 0 0 170px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #f4f6f8;
+    }
+
+    .project-content {
+      min-width: 0;
+      line-height: 1.45;
+    }
+
+    .project-title {
+      display: inline-block;
+      margin-bottom: 7px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #145da0;
+    }
+
+    .project-badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eef5fc;
+      color: #316b9f;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .project-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .project-badges .project-badge {
+      margin-bottom: 0;
+    }
+
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #eaf7ef;
+      color: #287a49;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .project-status::before {
+      width: 6px;
+      height: 6px;
+      margin-right: 6px;
+      border-radius: 50%;
+      background: #35a65f;
+      content: "";
+    }
+
+    .project-description {
+      margin: 0 0 9px;
+      color: #596572;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .project-links a {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 4px 10px;
+      border: 1px solid #d7e5f3;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .publications-section {
+      padding: 26px 20px 8px;
+    }
+
+    .publication-card {
+      width: 100%;
+      margin: 0 0 14px;
+      overflow: hidden;
+      border: 1px solid #e8edf3;
+      border-radius: 12px;
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .publication-card td {
+      padding: 20px;
+      line-height: 1.55;
+    }
+
+    .publication-card td:first-child {
+      width: 25%;
+    }
+
+    .publication-card td:last-child {
+      width: 75%;
+    }
+
+    .publication-card .one {
+      display: flex;
       width: 160px;
-      height: 140px;
-      position: relative;
+      height: 120px;
+      align-items: center;
+      justify-content: center;
     }
 
-    .two {
-      width: 160px;
-      height: 160px;
-      position: absolute;
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
+    .publication-card .one img {
+      max-width: 150px;
+      max-height: 112px;
+      object-fit: contain;
+      border-radius: 7px;
     }
 
-    .fade {
-      transition: opacity .2s ease-in-out;
-      -moz-transition: opacity .2s ease-in-out;
-      -webkit-transition: opacity .2s ease-in-out;
+    .publication-card .paper-title {
+      color: #145da0;
     }
 
-    span.highlight {
-      background-color: #ffffd0;
+    .publication-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 7px 0 10px;
+    }
+
+    .publication-venue {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #f0f2f5;
+      color: #596675;
+    }
+
+    .publication-description {
+      margin: 8px 0 0;
+      color: #697684;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .publication-links a {
+      display: inline-block;
+      margin: 0 6px 4px 0;
+      padding: 4px 9px;
+      border: 1px solid #d7e5f3;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .services-card {
+      margin-bottom: 28px;
+      padding: 18px 20px;
+      border: 1px solid #e8edf3;
+      border-radius: 12px;
+      color: #526170;
+      background: #f9fbfd;
+    }
+
+    .services-card p {
+      margin: 0;
+    }
+
+    @media (max-width: 680px) {
+      .page-shell {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .profile-hero tr,
+      .profile-hero td {
+        display: block;
+        width: 100% !important;
+      }
+
+      .profile-copy {
+        padding: 30px 22px 18px !important;
+      }
+
+      .profile-photo-cell {
+        padding: 10px 22px 30px !important;
+      }
+
+      .profile-photo {
+        width: 180px;
+        margin: auto;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        display: block;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 14px;
+      }
+
+      .publication-card td {
+        display: block;
+        width: 100% !important;
+      }
+
+      .publication-card .one {
+        width: 100%;
+        height: 130px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .experience-card,
+      .project-card,
+      .publication-card {
+        transition: none;
+      }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&display=swap">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 </head>
 
 <body>
-  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+  <table class="page-shell">
     <tbody>
       <tr>
         <td>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <!--<tr onmouseout="headshot_stop()" onmouseover="headshot_start()">-->
+          <table class="profile-hero">
             <tbody>
               <tr>
-                <td width="67%" valign="middle">
-                  <p align="center">
-                    <name>Kenkun Liu (刘垦坤)</name>
+                <td class="profile-copy">
+                  <h1 class="profile-name">Kenkun Liu (刘垦坤)</h1>
+
+                  <p class="profile-bio">
+                    I am now a Senior Researcher at Hunyuan (混元), Tencent, focusing on 3D generative foundation models. Before that, I obtained my PhD from <a href="https://www.cuhk.edu.cn/en"> The Chinese University of Hong Kong, Shenzhen</a>, under the
+                    supervision of <a href="https://gaplab.cuhk.edu.cn/pages/people">Prof. Xiaoguang Han</a>.
                   </p>
 
-                  <p>
-                    I am now a Senior Researcher at Hunyuan (混元), Tencent, focusing on multi-modal foundation models. Before that, I obtained my PhD from <a href="https://www.cuhk.edu.cn/en"> The Chinese University of Hong Kong, Shenzhen</a>, under the
-                    supervision of <a href="https://gaplab.cuhk.edu.cn/pages/people">Prof. Xiaoguang Han</a>. 
-                  </p>
-
-                  <p align="center">
-                    <a href="mailto:liu.kenkun33@gmail.com">Email</a> &nbsp/&nbsp
+                  <p class="profile-links">
+                    <a href="mailto:liu.kenkun33@gmail.com">Email</a>
                     <a href="https://scholar.google.com/citations?user=qy40HA0AAAAJ&hl=en">Google Scholar</a>
-                    &nbsp/&nbsp
-                    <a href="https://github.com/KenkunLiu">Github</a>
+                    <a href="https://github.com/KenkunLiu">GitHub</a>
                   </p>
                 </td>
 
-                <td width="33%">
-                  <a href="images/me.jpg"><img style="width:100%;max-width:100%" alt="profile photo"
-                      src="images/me.jpg" class="hoverZoomLink"></a>
+                <td class="profile-photo-cell">
+                  <a href="images/me.jpg"><img alt="profile photo"
+                      src="images/me.jpg" class="profile-photo hoverZoomLink"></a>
                 </td>
               </tr>
             </tbody>
           </table>
 
           <!-- Working Experience -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Working Experience</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/hunyuan_lego.png' width="125">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <!-- <a> -->
-                  <p>Hunyuan (混元基础模型部), Tencent.</p> 
-                  <!-- </a> -->
-                  <p>
-                    Time: 2026.03-now
-                  </p>
-              </tr>
-            </tbody>
-          </table>
+          <section class="content-section">
+            <div class="section-heading">
+              <h2 class="section-title">Working Experience</h2>
+            </div>
+            <div class="experience-grid experience-list">
+              <article class="experience-card">
+                <img class="experience-logo" src="images/hunyuan_lego.png" alt="Tencent Hunyuan" loading="lazy" decoding="async">
+                <div>
+                  <h3>Hunyuan, Tencent (混元)</h3>
+                  <p>Senior Researcher · Mar 2026–Present</p>
+                  <span class="experience-current">Current</span>
+                </div>
+              </article>
+            </div>
+          </section>
 
           <!-- Internships -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <section class="content-section">
+            <div class="section-heading">
+              <h2 class="section-title">Internships</h2>
+            </div>
+            <div class="experience-grid experience-list">
+              <article class="experience-card">
+                <img class="experience-logo" src="images/hunyuan_lego.png" alt="Tencent Hunyuan" loading="lazy" decoding="async">
+                <div>
+                  <h3>Hunyuan, Tencent (混元)</h3>
+                  <p>Research Intern · Oct 2025–Mar 2026</p>
+                </div>
+              </article>
+              <article class="experience-card">
+                <img class="experience-logo" src="images/step.png" alt="StepFun" loading="lazy" decoding="async">
+                <div>
+                  <h3>StepFun (阶跃星辰)</h3>
+                  <p>Research Intern · Mar 2025–Oct 2025</p>
+                </div>
+              </article>
+              <article class="experience-card">
+                <img class="experience-logo" src="images/tongyi.png" alt="Tongyi Lab" loading="lazy" decoding="async">
+                <div>
+                  <h3>Tongyi Lab, Alibaba (通义实验室)</h3>
+                  <p>Research Intern · Jul 2024–Mar 2025</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- Selected Projects -->
+          <section class="projects-section">
+            <div class="projects-heading">
+              <h2 class="section-title">Selected Projects</h2>
+            </div>
+
+            <article class="project-card">
+              <img class="project-image" src="images/hy3d.png" alt="Hunyuan3D Foundation Model" loading="lazy" decoding="async">
+              <div class="project-content">
+                <a class="project-title" href="https://3d.hunyuan.tencent.com/">
+                  Hunyuan3D Foundation Model
+                </a>
+                <div class="project-badges">
+                  <span class="project-status">Ongoing</span>
+                  <span class="project-badge">Core Contributor</span>
+                </div>
+                <p class="project-description">
+                  A 3D foundation model that transforms texts/images into high-fidelity 3D assets with detailed geometry and physically based materials.
+                </p>
+                <div class="project-links">
+                  <a href="https://3d.hunyuan.tencent.com/">Official Site</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-image" src="images/hunyuan3d_buffalo.jpg" alt="Hunyuan3D-Buffalo 1.0" loading="lazy" decoding="async">
+              <div class="project-content">
+                <a class="project-title" href="https://arxiv.org/pdf/2608.02711">
+                  Hunyuan3D-Buffalo 1.0
+                </a>
+                <br>
+                <span class="project-badge">Core Contributor</span>
+                <p class="project-description">
+                  A unified 10B multimodal model for 3D generation, understanding, editing, and part generation.
+                </p>
+                <div class="project-links">
+                  <a href="https://arxiv.org/pdf/2608.02711">Paper</a>
+                  <a href="https://tencent-hunyuan.github.io/Hunyuan3D-Buffalo1.0/">Project Page</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-image" src="images/nextstep_teaser.png" alt="NextStep-1" loading="lazy" decoding="async">
+              <div class="project-content">
+                <a class="project-title" href="https://arxiv.org/pdf/2508.10711">
+                  NextStep-1
+                </a>
+                <p class="project-description">
+                  A 14B autoregressive model for scalable text-to-image generation and image editing with continuous tokens.
+                </p>
+                <div class="project-links">
+                  <a href="https://arxiv.org/pdf/2508.10711">Paper</a>
+                  <a href="https://stepfun.ai/research/en/nextstep1">Project Page</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-image" src="images/xbench.png" alt="xbench" loading="lazy" decoding="async">
+              <div class="project-content">
+                <a class="project-title" href="https://arxiv.org/pdf/2506.13651">
+                  xbench
+                </a>
+                <p class="project-description">
+                  A continuously updated benchmark for evaluating AI-agent productivity in real-world professional tasks.
+                </p>
+                <div class="project-links">
+                  <a href="https://arxiv.org/pdf/2506.13651">Paper</a>
+                  <a href="https://xbench.org/">Project Page</a>
+                </div>
+              </div>
+            </article>
+          </section>
+
+
+          <!-- Publications -->
+          <section class="publications-section">
+            <div class="section-heading">
+              <h2 class="section-title">Selected Publications (first author &amp; co-first author)</h2>
+            </div>
+
+          <table class="publication-card">
             <tbody>
               <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Internships</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+                <td>
                   <div class="one">
-                    <img src='images/hunyuan_lego.png' width="125">
+                    <img src="images/UniMo.jpg" alt="UniMo paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
-                  <!-- <a> -->
-                  <p>Hunyuan (混元基础模型部), Tencent.</p> 
-                  <!-- </a> -->
-                  <p>
-                    Time: 2025.10-2026.03
-                  </p>
-              </tr>
-            </tbody>
-          </table>
-  
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/step.png' width="100">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <!-- <a> -->
-                  <p> StepFun (阶跃星辰).</p> 
-                  <!-- </a> -->
-                  <p>
-                    Time: 2025.03-2025.10 </p> 
-                  </p>
-              </tr>
-            </tbody>
-          </table>
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/tongyi.png' width="80">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <!-- <a> -->
-                  <p>Tongyi Lab (通义实验室), Alibaba Group.</p> 
-                  <!-- </a> -->
-                  <p>
-                    Time: 2024.07-2025.03 </p> 
-                  </p>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <!-- Researchs -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Selected Publications</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/hunyuan3d_buffalo.jpg' width="150">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <a href="https://arxiv.org/pdf/2608.02711">
-                    <papertitle>Hunyuan3D-Buffalo 1.0: A Unified Multimodal Model for Scalable 3D Generation, Understanding, and Editing</papertitle>
-                  </a>
-                  <br>
-                  <strong>Core contributor*</strong>
-                  <br>
-                  <em>Technical report</em>
-                  <br>
-                  <a href="https://arxiv.org/pdf/2608.02711">[Paper] </a>
-                  <a href="https://tencent-hunyuan.github.io/Hunyuan3D-Buffalo1.0/">[Project Page] </a>
-                  <br>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/UniMo.jpg' width="150">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://arxiv.org/abs/2601.12126">
-                    <papertitle>UniMo: Unified Motion Generation and Understanding with Chain of Thought</papertitle>
+                    <span class="paper-title">UniMo: Unified Motion Generation and Understanding with Chain of Thought</span>
                   </a>
-                  <br>
-                  <em>Guocun Wang*</em>,
-                  <strong>Kenkun Liu*</strong>,
-                  <em>Jing Lin</em>,
-                  <em>Guorui Song</em>,
-                  <em>Jian Li</em>,
-                  <em>Xiaoguang Han</em>
-                  <br>
-                  <em>AAAI2026</em>
-                  <br>
-                  <a href="https://arxiv.org/abs/2601.12126">[Paper] </a>
-                  <a href="https://github.com/GuocunWang/UniMo"> [Code] </a>
-                  <a href="https://github.com/GuocunWang/UniMo">[Project Page] </a>
-                  <br>
+                  <p class="publication-description">
+                    An LLM-based framework that unifies text-to-motion generation and motion-to-text understanding with motion-consistent chain-of-thought data and GRPO post-training.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">AAAI 2026</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2601.12126">Paper</a>
+                    <a href="https://github.com/GuocunWang/UniMo">Code</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/UniG.png' width="150">
+                    <img src="images/UniG.png" alt="UniGS paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://arxiv.org/pdf/2410.13195">
-                    <papertitle>UniGS: Modeling Unitary 3D Gaussians for Novel View Synthesis from Sparse-view Images</papertitle>
+                    <span class="paper-title">UniGS: Modeling Unitary 3D Gaussians for Novel View Synthesis from Sparse-view Images</span>
                   </a>
-                  <br>
-                  <em>Jiamin Wu*</em>,
-                  <strong>Kenkun Liu*</strong>,
-                  <em>Xiaoke Jiang</em>,
-                  <em>Yuan Yao</em>,
-                  <em>Lei Zhang</em>
-                  <br>
-                  <em>ICCV2025</em>
-                  <br>
-                  <a href="https://arxiv.org/pdf/2410.13195">[Paper] </a>
-                  <a href="https://github.com/jwubz123/UNIG"> [Code] </a>
-                  <a href="https://kenkunliu.github.io/UniG/">[Project Page] </a>
-                  <br>
+                  <p class="publication-description">
+                    A DETR-style model that represents 3D Gaussians as unified world-space queries and updates them via multi-view deformable cross-attention for sparse-view reconstruction.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">ICCV 2025</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2410.13195">Paper</a>
+                    <a href="https://github.com/jwubz123/UNIG">Code</a>
+                    <a href="https://kenkunliu.github.io/UniG/">Project Page</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/MaQ.png' width="150">
+                    <img src="images/MaQ.png" alt="Motions as Queries paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
-                  <a >
-                    <papertitle>Motions as Queries: One-Stage Multi-Person Holistic Human Motion Capture</papertitle>
+                <td>
+                  <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Liu_Motions_as_Queries_One-Stage_Multi-Person_Holistic_Human_Motion_Capture_CVPR_2025_paper.html">
+                    <span class="paper-title">Motions as Queries: One-Stage Multi-Person Holistic Human Motion Capture</span>
                   </a>
-                  <br>
-                  <strong>Kenkun Liu*</strong>,
-                  <em>Yurong Fu*</em>,
-                  <em>Weihao Yuan*</em>,
-                  <em>Jing Lin</em>,
-                  <em>Peihao Li</em>,
-                  <em>Xiaodong Gu</em>,
-                  <em>Lingteng Qiu</em>,
-                  <em>Haoqian Wang</em>,
-                  <em>Zilong Dong</em>,
-                  <em>Xiaoguang Han</em>
-                  <br>
-                  <em>CVPR2025</em>
-                  <br>
-                  <a>[Paper] </a>
-                  <a> [Code] </a>
-                  <a>[Project Page] </a>
-                  <br>
+                  <p class="publication-description">
+                    An end-to-end, one-stage system that uses temporally consistent queries to capture every person's whole-body motion from monocular video without separate detectors or trackers.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">CVPR 2025</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_Motions_as_Queries_One-Stage_Multi-Person_Holistic_Human_Motion_Capture_CVPR_2025_paper.pdf">Paper</a>
+                    <a href="https://github.com/KenkunLiu/MaQ">Project Page</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/DIG3D.png' width="150">
+                    <img src="images/DIG3D.png" alt="LeanGaussian paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://arxiv.org/abs/2404.16323">
-                    <papertitle>LeanGaussian: Breaking Pixel or Point Cloud Correspondence in Modeling 3D Gaussians</papertitle>
+                    <span class="paper-title">LeanGaussian: Breaking Pixel or Point Cloud Correspondence in Modeling 3D Gaussians</span>
                   </a>
-                  <br>
-                  <em>Jiamin Wu*</em>,
-                  <strong>Kenkun Liu*</strong>,
-                  <em>Han Gao</em>,
-                  <em>Xiaoke Jiang</em>,
-                  <em>Lei Zhang</em>
-                  <br>
-                  <em>CVPR2025</em>
-                  <br>
-                  <a href="https://arxiv.org/abs/2404.16323">[Paper] </a>
-                  <a> [Code] </a>
-                  <a href="https://kenkunliu.github.io/DIG3D/">[Project Page] </a>
-                  <br>
+                  <p class="publication-description">
+                    A deformable-Transformer method that directly models each query as a 3D Gaussian, removing pixel and point-cloud correspondence for compact, efficient single-view reconstruction.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">CVPR 2025</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2404.16323">Paper</a>
+                    <a href="https://kenkunliu.github.io/DIG3D/">Project Page</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/MVHumanNet.png' width="150">
+                    <img src="images/MVHumanNet.png" alt="MVHumanNet paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://arxiv.org/pdf/2312.02963.pdf">
-                    <papertitle>MVHumanNet: A Large-scale Dataset of Multi-view Daily Dressing Human Captures</papertitle>
+                    <span class="paper-title">MVHumanNet: A Large-scale Dataset of Multi-view Daily Dressing Human Captures</span>
                   </a>
-                  <br>
-                  <em>Zhangyang Xiong*</em>,
-                  <em>Chenghong Li*</em>,
-                  <strong>Kenkun Liu*</strong>,
-                  <em>Hongjie Liao</em>,
-                  <em>Jianqiao Hu</em>,
-                  <em>Junyi Zhu</em>,
-                  <em>Shuliang Ning</em>,
-                  <em>Lingteng Qiu</em>,
-                  <em>Chongjie Wang</em>,
-                  <em>Shijie Wang</em>,
-                  <em>Shuguang Cui</em>,
-                  <em>Xiaoguang Han</em>
-                  <br>
-                  <em>CVPR</em>, 2024
-                  <br>
-                  <a href="https://arxiv.org/pdf/2312.02963.pdf">[Paper] </a>
-                  <a href="https://github.com/GAP-LAB-CUHK-SZ/MVHumanNet">[Code] </a>
-                  <a href="https://x-zhangyang.github.io/MVHumanNet/">[Project Page] </a>
-                  <br>
+                  <p class="publication-description">
+                    A large-scale multi-view human dataset with 4,500 identities, 9,000 outfits, 60,000 motion sequences, and 645 million richly annotated frames.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">CVPR 2024</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2312.02963.pdf">Paper</a>
+                    <a href="https://github.com/GAP-LAB-CUHK-SZ/MVHumanNet">Code</a>
+                    <a href="https://x-zhangyang.github.io/MVHumanNet/">Project Page</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/HMNeRFBench.png' width="150">
+                    <img src="images/HMNeRFBench.png" alt="HMNeRFBench paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://openreview.net/pdf?id=7kc4gtEk3b">
-                    <papertitle>HMNeRFBench: A Comprehensive Benchmark for Neural Human Radiance Fields</papertitle>
+                    <span class="paper-title">HMNeRFBench: A Comprehensive Benchmark for Neural Human Radiance Fields</span>
                   </a>
-                  <br>
-                  <strong>Kenkun Liu</strong>,
-                  <em>Derong Jin</em>,
-                  <em>Ailing Zeng</em>,
-                  <em>Xiaoguang Han</em>,
-                  <em>Lei Zhang</em>
-                  <br>
-                  <em>NeurIPS</em>, 2023
-                  <br>
-                  <a href="https://openreview.net/pdf?id=7kc4gtEk3b">[Paper] </a>
-                  <a href="https://github.com/KenkunLiu/HMNeRFBench_release/">[Code] </a>
-                  <a href="https://kenkunliu.github.io/HMNeRFBench/">[Project Page] </a>
-                  <br>
+                  <p class="publication-description">
+                    A unified benchmark for fairly evaluating human NeRFs across challenging scenes, with cross-subject tests and analyses of animatability and generalizability.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">NeurIPS 2023</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://openreview.net/pdf?id=7kc4gtEk3b">Paper</a>
+                    <a href="https://github.com/KenkunLiu/HMNeRFBench_release/">Code</a>
+                    <a href="https://kenkunliu.github.io/HMNeRFBench/">Project Page</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          
-          <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/Mutual_Guidance.png' width="150">
+                    <img src="images/global_pose.png" alt="Global pose features paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
-                  <a href="https://arxiv.org/pdf/2211.13919.pdf">
-                    <papertitle>Mutual Guidance and Residual Integration for Image Enhancement</papertitle>
-                  </a>
-                  <br>
-                  <em>Kun Zhou</em>,
-                  <strong>Kenkun Liu</strong>,
-                  <em>Wenbo Li</em>,
-                  <em>Xiaoguang Han</em>,
-                  <em>Jiangbo Lu</em>
-                  <br>
-                  <em>arXiv:2211.13919</em>
-                  <br>
-                  <a href="https://arxiv.org/pdf/2211.13919.pdf">[Paper] </a>
-                  <br>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-
-<!-- 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/ETH_Seg.png' width="150">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Qiu_ETHSeg_An_Amodel_Instance_Segmentation_Network_and_a_Real-World_Dataset_CVPR_2022_paper.pdf">
-                    <papertitle>ETHSeg: An Amodel Instance Segmentation Network and a Real-world Dataset for X-Ray Waste Inspection</papertitle>
-                  </a>
-                  <br>
-                  <em>Lingteng Qiu</em>,
-                  <em>Zhangyang Xiong</em>,
-                  <em>Xuhao Wang</em>,
-                  <strong>Kenkun Liu</strong>,
-                  <em>Yihan Li</em>,
-                  <em>Guanying Chen</em>,
-                  <em>Xiaoguang Han</em>,
-                  <em>Shuguang Cui</em>
-                  <br>
-                  <em>CVPR</em>, 2022
-                  <br>
-                  <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Qiu_ETHSeg_An_Amodel_Instance_Segmentation_Network_and_a_Real-World_Dataset_CVPR_2022_paper.pdf">[Paper] </a>
-                  <a href="https://github.com/GAP-LAB-CUHK-SZ/ETHSeg">[Code] </a>
-                  <br>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/global_pose.png' width="150">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://openaccess.thecvf.com/content/ACCV2020/papers/Liu_Learning_Global_Pose_Features_in_Graph_Convolutional_Networks_for_3D_ACCV_2020_paper.pdf">
-                    <papertitle>Learning Global Pose Features in Graph Convolutional Networks for 3D Human Pose Estimation</papertitle>
+                    <span class="paper-title">Learning Global Pose Features in Graph Convolutional Networks for 3D Human Pose Estimation</span>
                   </a>
-                  <br>
-                  <strong>Kenkun Liu</strong>,
-                  <em>Zhiming Zou</em>,
-                  <em>Wei Tang</em>
-                  <br>
-                  <em>ACCV</em>, 2020
-                  <br>
-                  <a href="https://openaccess.thecvf.com/content/ACCV2020/papers/Liu_Learning_Global_Pose_Features_in_Graph_Convolutional_Networks_for_3D_ACCV_2020_paper.pdf">[Paper] </a>
-                  <!-- <a href="https://github.com/UX-Decoder/DINOv">[Code] </a> -->
-                  <br>
+                  <p class="publication-description">
+                    A 3D pose-estimation GCN that adds a global node and heterogeneous multi-task learning to combine joint-local features with global pose attributes.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">ACCV 2020</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://openaccess.thecvf.com/content/ACCV2020/papers/Liu_Learning_Global_Pose_Features_in_Graph_Convolutional_Networks_for_3D_ACCV_2020_paper.pdf">Paper</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
-<!-- 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="publication-card">
             <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
+              <tr>
+                <td>
                   <div class="one">
-                    <img src='images/high_order.png' width="150">
+                    <img src="images/weight_sharing_mechanisms.png" alt="Weight sharing paper teaser" loading="lazy" decoding="async">
                   </div>
                 </td>
-                <td valign="top" width="75%">
-                  <a href="https://www.bmvc2020-conference.com/assets/papers/0550.pdf">
-                    <papertitle>High-order Graph Convolutional Networks for 3D Human Pose Estimation</papertitle>
-                  </a>
-                  <br>
-                  <em>Zhiming Zou</em>,
-                  <strong>Kenkun Liu</strong>,
-                  <em>Le Wang</em>,
-                  <em>Wei Tang</em>
-                  <br>
-                  <em>BMVC</em>, 2020
-                  <br>
-                  <a href="https://www.bmvc2020-conference.com/assets/papers/0550.pdf">[Paper] </a>
-                  <br>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr onmouseout="nerfsuper_stop()" onmouseover="nerfsuper_start()">
-                <td width="25%">
-                  <div class="one">
-                    <img src='images/weight_sharing_mechanisms.png' width="150">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
+                <td>
                   <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123550324.pdf">
-                    <papertitle>A Comprehensive Study of Weight Sharing in Graph Networks for 3D Human Pose Estimation</papertitle>
+                    <span class="paper-title">A Comprehensive Study of Weight Sharing in Graph Networks for 3D Human Pose Estimation</span>
                   </a>
-                  <br>
-                  <strong>Kenkun Liu*</strong>,
-                  <em>Rongqi Ding*</em>,
-                  <em>Zhiming Zou</em>,
-                  <em>Le Wang</em>,
-                  <em>Wei Tang</em>
-                  <br>
-                  <em>ECCV</em>, 2020
-                  <br>
-                  <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123550324.pdf">[Paper] </a>
-                  <!-- <a href="https://github.com/UX-Decoder/DINOv">[Code] </a> -->
-                  <br>
+                  <p class="publication-description">
+                    A systematic study that derives and evaluates eight GCN weight-sharing schemes for modeling distinct body-joint relationships in 3D pose estimation.
+                  </p>
+                  <div class="publication-meta">
+                    <span class="publication-venue">ECCV 2020</span>
+                  </div>
+                  <div class="publication-links">
+                    <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123550324.pdf">Paper</a>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
+
+          </section>
 
           <!-- Services -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <heading>Services</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- <ul>
-            <li>
-                <strong>Chinese National Scholarship</strong>
-                , Ministry of Education of P.R. China
-            </li>
-            <li>Huawei Scholarship, Huawei Technologies Co., Ltd</li>
-            <li>First Prize Scholarship, Xidian University</li>
-            <li>First Prize, China Undergraduate Mathematical Contest in Modeling (CUMCM)</li>
-            <li>Finalist Winner (First prize), International Mathematical Contest in Modeling (MCM/ICM)</li>
-            <li>First Prize in Jiangsu Province, Chinese Physics Olympiad (Rank 66)</li>
-        </ul> -->
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody>
-            <tr>
-            <td>
-              <p >Reviewer: IJCV, NeurIPS, CVPR, ICCV, ECCV</p>
-            </td>
-            </tr>
-          </tbody>
-        </table>
-        
-
-
+          <section class="content-section">
+            <div class="section-heading">
+              <h2 class="section-title">Services</h2>
+            </div>
+            <div class="services-card">
+              <p><strong>Reviewer</strong> · IJCV, NeurIPS, CVPR, ICCV, ECCV</p>
+            </div>
+          </section>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 
 </html>
