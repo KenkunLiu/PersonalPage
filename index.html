@@ -99,6 +99,13 @@
       text-align: left;
     }
 
+    .profile-location {
+      margin: -10px 0 14px;
+      color: #73808d;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
     .profile-bio {
       margin: 0;
       color: #506070;
@@ -110,7 +117,8 @@
       margin: 22px 0 0;
     }
 
-    .profile-links a {
+    .profile-links a,
+    .profile-contact {
       display: inline-block;
       margin: 0 8px 8px 0;
       padding: 7px 13px;
@@ -119,6 +127,37 @@
       background: #fff;
       font-size: 13px;
       font-weight: 500;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .profile-links a:hover {
+      transform: translateY(-1px);
+      border-color: #b9d2e8;
+      background: #f7fbff;
+    }
+
+    .wechat-contact {
+      border-color: #cce8d5;
+      color: #277947;
+      background: #f0faf4;
+      cursor: pointer;
+    }
+
+    .wechat-contact:hover,
+    .wechat-contact.copied {
+      border-color: #9fd7b2;
+      background: #e4f6ea;
+    }
+
+    .wechat-contact::before {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: #35a65f;
+      content: "";
+      vertical-align: 1px;
     }
 
     .profile-photo-cell {
@@ -485,6 +524,7 @@
               <tr>
                 <td class="profile-copy">
                   <h1 class="profile-name">Kenkun Liu (刘垦坤)</h1>
+                  <p class="profile-location">📍 Based in Shanghai, China</p>
 
                   <p class="profile-bio">
                     I am now a Senior Researcher at Hunyuan (混元), Tencent, focusing on 3D generative foundation models. Before that, I obtained my PhD from <a href="https://www.cuhk.edu.cn/en"> The Chinese University of Hong Kong, Shenzhen</a>, under the
@@ -495,6 +535,10 @@
                     <a href="mailto:liu.kenkun33@gmail.com">Email</a>
                     <a href="https://scholar.google.com/citations?user=qy40HA0AAAAJ&hl=en">Google Scholar</a>
                     <a href="https://github.com/KenkunLiu">GitHub</a>
+                    <button class="profile-contact wechat-contact" type="button"
+                      data-wechat="lkk_wx123" aria-label="Copy WeChat ID" aria-live="polite">
+                      WeChat
+                    </button>
                   </p>
                 </td>
 
@@ -867,6 +911,32 @@
       </tr>
     </tbody>
   </table>
+  <script>
+    const wechatButton = document.querySelector('.wechat-contact');
+
+    wechatButton.addEventListener('click', async () => {
+      const wechatId = wechatButton.dataset.wechat;
+
+      try {
+        await navigator.clipboard.writeText(wechatId);
+      } catch {
+        const input = document.createElement('textarea');
+        input.value = wechatId;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+      }
+
+      wechatButton.textContent = 'Copied!';
+      wechatButton.classList.add('copied');
+
+      setTimeout(() => {
+        wechatButton.textContent = 'WeChat';
+        wechatButton.classList.remove('copied');
+      }, 1600);
+    });
+  </script>
 </body>
 
 </html>
